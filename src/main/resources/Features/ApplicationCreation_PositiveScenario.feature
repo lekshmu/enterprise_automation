@@ -1,25 +1,25 @@
 Feature: Internal Developer application creation and approval Positive Scenario
 
-Scenario: Validate the welcome page
-      Given launches url
-     #Then navigate to welcome page
-      Then able to click on login button
-      Then lands on login page
-     
+Scenario: Validate the welcome page of internal developer page in Application creation positive scenario
+      Given launches url for checking the internal developer work flow
+      When  Verify thirdparty successfully navigated to the welcome page
+      Then  able to click on login button for cheking the third party workflow
+      And  check that internal developer lands on the login page successfully 
+      
 Scenario: Validate internaldeveloper logins with valid credentials
        When internaldeveloper enters valid email and password
        And  hits login button and lands on internaldeveloper page
        Then check internaldeveloper in the  landing page or not
-		
-	Scenario: click on create application buttion and view the page
-	     When internal developer click on create application button
+       
+Scenario: Internal developer able to click on the create application button and successfully navigated to the page		
+	     When internal developer click on create application button 
 	     Then internaldeveloper sucessfully land on the create application page
 	     
- Scenario: Validate able to create application first
+ Scenario: Validate that internal developer able to create the application for the first time by filling all requied fields
 	     When we enter the all required fields
 	     Then click on save button
 	     
-Scenario: Validate after creating go back to the dashboard
+Scenario: Validate after creating the application user able to go back to the dashboard
 	     When hits on the xpath button 
 	     Then go back to the dashboard
 	     

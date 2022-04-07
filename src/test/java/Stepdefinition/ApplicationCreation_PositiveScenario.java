@@ -36,48 +36,64 @@ static String str;
 static boolean value;
 
 /* TC_01 Verify user navigated to welcome page */
-@Given("launches url")
-public void launches_url() throws FileNotFoundException, IOException {
 
-try {
-browser_launch();
-s= Dataiter();
-browser_wait(120000);
-}catch (Exception e) {
-	e.printStackTrace();
-	takeScreenShot("landing_page_of_internaldeveloper_app_creation");
-	
-}
-}
-@Then("able to click on login button")
-public void able_to_click_on_button() throws IOException {
-try {
-click("first_login");
-Thread.sleep(3000);
-browser_wait(1000);
-} catch (Exception e) {
-e.printStackTrace();
-takeScreenShot("internaldeveloper_app_creation_login_button");
+@Given("launches url for checking the internal developer work flow")
+public void launches_url_for_checking_the_internal_developer_work_flow() throws IOException {
+	try {
+		browser_launch();
+		s= Dataiter();
+		browser_wait(120000);
+		}catch (Exception e) {
+			e.printStackTrace();
+			takeScreenShot("launches_url_for_checking_the_internal_developer_work_flow");
+			
+		}
 }
 
+@When("Verify thirdparty successfully navigated to the welcome page")
+public void verify_thirdparty_successfully_navigated_to_the_welcome_page() throws IOException, InterruptedException {
+	try {
+		str= driver.findElement(By.xpath(OR_reader("navigated_welcomepage"))).getText();
+		Assert.assertEquals(str,td_reader("welcome_page_title"));
+		}catch (Exception e) {
+			e.printStackTrace();
+			takeScreenShot("verify_thirdparty_successfully_navigated_to_the_welcome_page");
+			Thread.sleep(5000);
+			browser_wait(3000);
+		}
 }
 
-@Then("lands on login page")
-public void lands_on_login_page_button() throws IOException{
+@Then("able to click on login button for cheking the third party workflow")
+public void able_to_click_on_login_button_for_cheking_the_third_party_workflow() throws IOException {
+
+	try {
+		click("first_login");
+		Thread.sleep(3000);
+		browser_wait(1000);
+		}catch (Exception e) {
+			e.printStackTrace();
+			takeScreenShot("able_to_click_on_login_button_for_cheking_the_third_party_workflow");
+			
+		}
+	    
+}
+
+@Then("check that internal developer lands on the login page successfully")
+public void check_that_internal_developer_lands_on_the_login_page_successfully() throws IOException {
 	try {
 		str= driver.findElement(By.xpath(OR_reader("login_title"))).getText();
 		Assert.assertEquals(str,td_reader("login_title"));
 		}catch (Exception e) {
 			e.printStackTrace();
-			takeScreenShot("login_page_of_internaldeveloper_appcreation");
+			takeScreenShot("check_that_internal_developer_lands_on_the_login_page_successfully");
 			
-		}  
+		}
 
 }
 
 
-
 /* TC_02 Validate internaldeveloper logins with valid credentials */
+
 @When("internaldeveloper enters valid email and password")
 public void internaldeveloper_enters_valid_email_and_password() throws InterruptedException, IOException {
 try {
@@ -97,6 +113,8 @@ try {
   }
   }
 
+
+
 @When("hits login button and lands on internaldeveloper page")
 public void hits_login_button_and_lands_on_internaldeveloper_page() throws IOException {
 	try {
@@ -113,7 +131,8 @@ public void check_internaldeveloper_in_the_landing_page_or_not() throws IOExcept
 	try {
 		str= driver.findElement(By.xpath(OR_reader("internal_loginpage_first_title"))).getText();
 		Assert.assertEquals(str,td_reader("internal_loginpage_first_title"));
-	    
+		Thread.sleep(5000);
+		browser_wait(3000);
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("internal_loginpage_first_title_checking");
@@ -121,6 +140,7 @@ public void check_internaldeveloper_in_the_landing_page_or_not() throws IOExcept
 }
 
 
+/* TC_04 Internal developer able to click on the create application button and successfully navigated to the page  */
 
 @When("internal developer click on create application button")
 public void internal_developer_click_on_create_application_button() throws IOException {
@@ -145,6 +165,8 @@ public void internaldeveloper_sucessfully_land_on_the_create_application_page() 
 			takeScreenShot("internaldeveloper_sucessfully navigated_to_the_create_application_page");
 	}
 }
+
+/* TC_05 Validate that internal developer able to create the application for the first time by filling all requied fields  */
 
 @When("we enter the all required fields")
 public void we_enter_the_all_required_fields() throws IOException, InterruptedException {
