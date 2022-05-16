@@ -13,7 +13,7 @@ Scenario: Validate that internaldeveloper user is not allowed to login with inva
       Then internaldeveloper click on the login button after entering invalid email id and invalid password
       And  check that internaldeveloper gets a validation msg 
      
-Scenario: Validate that internaldeveloper user is not allowed to login with valid email and invalid password
+Scenario: Validate that internaldeveloper user is not allowed to login with valid email and invalid passworddd
       When internaldeveloper enters valid email id and invalid password in the login page
       Then internaldeveloper click on the login button after entering valid email id and invalid password
       And  internaldeveloper check the validation msg 
